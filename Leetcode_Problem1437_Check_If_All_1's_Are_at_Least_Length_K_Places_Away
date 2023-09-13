@@ -1,0 +1,38 @@
+bool kLengthApart(int* nums, int numsSize, int k){
+    int distance = 0 , i = 0;
+    for( ; i < numsSize ; i++)
+        if(nums[i] == 1)
+            break;
+    for( i++ ; i < numsSize ; i++)
+    {
+        if(nums[i] == 1)
+        {
+            if(distance < k)
+                return 0;
+            distance = 0;
+        }
+        else
+            distance++;
+    }
+    return 1;
+}
+
+
+-------------------------------------------------------------------------
+
+
+bool kLengthApart(int* nums, int numsSize, int k){
+    int distance = k;
+    for(int i = 0 ; i < numsSize ; i++)
+    {
+        if(nums[i] == 1)
+        {
+            if(distance < k)
+                return false;
+            distance=0;
+        }
+        else
+            distance++;
+    }
+    return true;
+}
